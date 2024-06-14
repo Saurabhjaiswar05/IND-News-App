@@ -4,7 +4,7 @@ const Navbar = ({setCategory}) => {
   return (
     <nav  style={{position:"fixed", top:"0", width:"100%", zIndex:"1"}} className="navbar navbar-expand-lg bg-body-tertiary py-3" data-bs-theme="dark">
   <div className="container-fluid">
-    <a className="navbar-brand" ><span className='badge bg-light text-dark fs-6' onClick={()=> setCategory("general")} style={{cursor:"pointer"}}>IND News</span></a>
+    <div className="navbar-brand" ><span className='badge bg-light text-dark fs-6' onClick={()=> setCategory("general")} style={{cursor:"pointer"}}>IND News</span></div>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
