@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 
+
 const NewsBoard = ({ category }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    
-    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=459d573dccaa4d5b99034fed92c004ff`;
+    console.log(process.env);
+    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
     fetch(url)
     .then((response) => {
       if (!response.ok) {
@@ -15,7 +16,7 @@ const NewsBoard = ({ category }) => {
       return response.json();
     })
       .then((data) => setArticles(data.articles))
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => console.error("Error fetching data:", error.message));
   }, [category]);
   return (
     <div
