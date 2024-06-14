@@ -5,8 +5,13 @@ const NewsBoard = ({category}) => {
     const [articles, setArticles] = useState([]);
 
     useEffect(()=>{
+      try {
         let url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=459d573dccaa4d5b99034fed92c004ff`
         fetch(url).then(response=> response.json()).then(data=> setArticles(data.articles));
+      } catch (error) {
+        console.log(error);
+      }
+        
     },[category])
   return (
     <div style={{paddingLeft:"110px", backgroundColor:"black",paddingTop:"45px"}}>
